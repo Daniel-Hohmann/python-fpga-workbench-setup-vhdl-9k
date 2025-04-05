@@ -7,7 +7,7 @@ pkgs.mkShell {
     glpk
     boost
     eigen
-    python39 # Python selbst
+    python39
     yosys
     yosys-ghdl
     ghdl-llvm
@@ -17,7 +17,27 @@ pkgs.mkShell {
   ];
 
   shellHook = ''
-    echo "Starte nix-shell enviroment for tang nano 9k fpga dev"
+    echo "Starte nix-shell environment for Tang Nano 9K FPGA dev"
+
+    # Setze Python-Version aus Nix
+    PYTHON=python3
+
+    # Prüfe ob das virtuelle Environment existiert
+    if [ ! -d "venv" ]; then
+      echo "Erstelle neues Python-Virtualenv..."
+      $PYTHON -m venv venv
+      source venv/bin/activate
+
+      if [ -f requirements.txt ]; then
+        echo "Installiere Python-Abhängigkeiten aus requirements.txt..."
+        pip install --upgrade pip
+        pip install -r requirements.txt
+      else
+        echo "Hinweis: requirements.txt nicht gefunden, überspringe Installation"
+      fi
+    else
+      echo "Aktiviere bestehendes Virtualenv..."
+      source venv/bin/activate
+    fi
   '';
 }
-
