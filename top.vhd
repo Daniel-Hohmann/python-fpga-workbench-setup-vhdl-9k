@@ -21,4 +21,3 @@ begin
 
     led <= counter(24); -- langsames Blinken bei ~1Hz
 end architecture;
-

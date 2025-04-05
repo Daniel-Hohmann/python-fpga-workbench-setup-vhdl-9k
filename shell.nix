@@ -2,16 +2,20 @@
 
 pkgs.mkShell {
   buildInputs = with pkgs; [
+    # yosys Abhängigkeiten
     cmake
     gcc
     glpk
     boost
     eigen
     python39
+    # yosys + Plugin fuer vhdl
     yosys
     yosys-ghdl
     ghdl-llvm
+    # nextpnr
     nextpnr
+    # openfpgaloader + utils
     openfpgaloader
     usbutils
   ];
