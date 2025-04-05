@@ -75,3 +75,22 @@ Nützlich für komplexe Testauswertungen oder Regressionstests über viele FPGA-
 # wichtig 
 https://github.com/YosysHQ/nextpnr?tab=readme-ov-file#nextpnr-himbaechel
 das installieren und apicula nicht vergessen sehr wichtig um den code zu synthetisieren!!!
+
+
+# Commands
+zum flashen
+```sudo openFPGALoader -b tangnano9k pack.fs```
+zum Place & Route
+```nextpnr-himbaechel \
+  --json top.json \
+  --write pnrblinky.json \
+  --device GW1NR-LV9QN88PC6/I5 \
+  --vopt family=GW1N-9C \
+  --vopt cst=constraints.cst
+```
+apicula fuer Bitstream generation
+``` gowin_pack -d GW1N-9C -o pack.fs blink_routed.json```
+yosys synthese
+```
+yosys -m ghdl -p "ghdl blinky.vhdl -e blink; synth_gowin -json blinky.json"
+```
