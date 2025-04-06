@@ -1,1 +1,15 @@
 /venv
+
+# Temporäre Dateien
+build/
+*.log
+*.bak
+*.tmp
+
+# Tools und Binärdateien
+bin/
+
+# Generierte Dateien
+*.json
+*.bit
+*.fs

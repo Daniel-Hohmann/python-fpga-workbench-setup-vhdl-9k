@@ -1,7 +1,10 @@
 TOPLEVEL_LANG ?= vhdl
 SIM ?= ghdl
-MODULE := $(shell echo $$MODULE)
-TOPLEVEL := $(shell echo $$TOPLEVEL)
-VHDL_SOURCES := ../top.vhdl
+
+TOPLEVEL := top
+MODULE := test_top
+
+VHDL_SOURCES := ../top.vhd
 
 include $(shell cocotb-config --makefiles)/Makefile.sim
+GHDL_SIM_ARGS += --vcd=wave.vcd
