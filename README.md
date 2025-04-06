@@ -1,7 +1,7 @@
 # fpga-pyfpga-setup-9k
 das reposetroy ist speziel fuer den tang nano 9k geeignet und ihn mit vhdl zu Programmieren mit opensource tools auf nixos um ein komplettes enviroment aufzusetzen einfach den schritten folgen:
 ```
-https://github.com/Daniel-Hohmann/python-fpga-workbench-setup-vhdl-9k.git
+git clone https://github.com/Daniel-Hohmann/python-fpga-workbench-setup-vhdl-9k.git
 cd python-fpga-workbench-setup-vhdl-9k
 ```
 Danach einfach den Befehl:
